@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestSettings name="Локальные" id="4cc62279-6c24-4d43-bc29-c2db16346260" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Description>Это - параметры по умолчанию для локального тестового запуска.</Description>
+  <Deployment enabled="false" />
+  <Execution>
+    <TestTypeSpecific />
+    <AgentRule name="Execution Agents">
+    </AgentRule>
+  </Execution>
+</TestSettings>

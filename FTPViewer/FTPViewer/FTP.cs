@@ -11,16 +11,16 @@ namespace FTPViewer
         private FtpClient client = new FtpClient();
 
         private int _timeoutFTP;
-        private string _ftpServer;     			//ФТП сервер
-        private int _ftpPort = 21;              //порт для передачи данных
-        private string _ftpLogin;               //логин на ФТП
-        private string _ftpPassword;            //пароль на ФТП
+        private string _ftpServer;     			
+        private int _ftpPort = 21;              
+        private string _ftpLogin;               
+        private string _ftpPassword;            
 
         public bool IsServerConnect { get; set; }
 
         public FTP(int timeoutFTP, string ftpServer, int ftpPort, string ftpLogin, string ftpPassword)
         {
-            client.PassiveMode = true;      //Включаем пассивный режим ФТП
+            client.PassiveMode = true;     
 
             _timeoutFTP = timeoutFTP;
             _ftpServer = ftpServer;

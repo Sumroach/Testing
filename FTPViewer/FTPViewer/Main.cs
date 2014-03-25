@@ -70,13 +70,6 @@ namespace FTPViewer
             for (int i = 0; i < files.Count; i++)
             {
                 node.Nodes.Add(files[i]);
-                //string extension = files[i].Split('.').Last();
-                //if (!imageList1.Images.ContainsKey(extension.ToUpper()))
-                //{
-                //    imageList1.Images.Add(extension.ToUpper(), FileIconLoader.GetFileIcon(files[i]));
-                //}
-                //node.Nodes[i + folders.Count].ImageKey = extension.ToUpper();
-                //node.Nodes[i + folders.Count].SelectedImageKey = extension.ToUpper();
             }
             node.Expand();
         }
@@ -104,13 +97,6 @@ namespace FTPViewer
                 for (int i = 0; i < files.Length; i++)
                 {
                     node.Nodes.Add(files[i]);
-                    //string extension = files[i].Split('.').Last();
-                    //if (!imageList1.Images.ContainsKey(extension.ToUpper()))
-                    //{
-                    //    imageList1.Images.Add(extension.ToUpper(), FileIconLoader.GetFileIcon(files[i]));
-                    //}
-                    //node.Nodes[i + folders.Length].ImageKey = extension.ToUpper();
-                    //node.Nodes[i + folders.Length].SelectedImageKey = extension.ToUpper();
                 }
                 node.Expand();
             }
@@ -149,17 +135,10 @@ namespace FTPViewer
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            if (ftp == null)
-            {
-                MessageBox.Show("You should choose connection settings before trying to refresh.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                if (opt.ShowDialog() == DialogResult.OK)
-                    ftp = new FTP(opt.Timeout, opt.FtpServer, opt.FtpPort, opt.FtpLogin, opt.FtpPassword);
-                    MessageBox.Show(ftp.connect());
-            }
             try
             {
                 treeViewFTP.Nodes[0].Nodes.Clear();
-                if (ftp.IsServerConnect)
+                if ((ftp != null) && (ftp.IsServerConnect)) 
                 {
                     fillNode(ftp.getFileList(), treeViewFTP.Nodes[0]);
                 }
@@ -201,8 +180,6 @@ namespace FTPViewer
             }
 
         }
-
-  
 
         private void buttonUpload_Click(object sender, EventArgs e)
         {
@@ -348,12 +325,5 @@ namespace FTPViewer
                 }
             }
         }
-
-
-
-
-
-
-
     }
 }
